@@ -1,0 +1,99 @@
+<h2>{{ title }}</h2>
+<form [formGroup]="form" (ngSubmit)="save(video)" enctype="multipart/form-data">
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">Exercise</h3>
+        </div>
+        <fieldset>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="box-body pad">
+                                <label>Name</label>
+                                <input [(ngModel)]="exercise.name" name="name" #name formControlName="name" type="text" class="form-control">
+                                <div *ngIf="name.touched && !name.valid" class="alert alert-danger">
+                                    Name is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="box-body pad">
+                                <label>Number Of Players</label>
+                                <input [(ngModel)]="exercise.numberOfPlayers" formControlName="numberOfPlayers" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="box-body pad">
+                                <label>Description</label>
+                                <input [(ngModel)]="exercise.description" #description formControlName="description" type="text" class="form-control">
+                                <div *ngIf="description.touched && !description.valid" class="alert alert-danger">
+                                    Description is required.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="box-body pad">
+                                <label>Video</label>
+                                <input type="file" [(ngModel)]="exercise.video" #video formControlName="video" class="form-control" accept="video/*" />
+                                <!--
+                                <input type="file" ng2FileSelect [uploader]="uploader" />
+                                -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="box-body pad">
+                                <label>Objective</label>
+                                <br />
+                                <textarea [(ngModel)]="exercise.objective" 
+                                        name="objective" 
+                                        formControlName="objective" 
+                                        id="objective" 
+                                        style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="form-group">
+                <label>Materials</label>
+                <input [(ngModel)]="exercise.materials" formControlName="materials" type="text" class="form-control">
+            </div>
+            -->
+        </fieldset>
+        
+        <fieldset>
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="box-body pad">
+                                <label>Design</label>
+                                <div id="board" style="width: 100%; height: 200px; border: 1px solid #dddddd; padding: 10px;"></div>
+                                <input id="designHidden" [(ngModel)]="exercise.design" formControlName="design" type="hidden" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div class="box-footer">
+            <a routerLink="/exercises" class="btn btn-default">Cancel</a>
+            <button id="saveExerciseBtn" type="submit" class="btn btn-info pull-right">Save</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,43 @@
+<h2>Players</h2>
+<p>
+    <a [routerLink]="['NewPlayer']" class="btn btn-primary">Add Player</a>
+</p>
+<div class="box">
+	<div class="box-header with-border">
+		<h3 class="box-title">Players</h3>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th></th>
+					<th style="text-align: center; width: 40px;">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let p of players">
+					<td>{{ p.name }}</td>
+					<td></td>
+					<td style="text-align: center;">
+						<a [routerLink]="['EditPlayer', { playerId: p.userId }]">
+							<i class="glyphicon glyphicon-edit"></i>
+						</a>
+						&nbsp;&nbsp;
+						<i (click)="deletePlayer(e)" class="glyphicon glyphicon-remove clickable"></i>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="box-footer clearfix">
+		<ul class="pagination pagination-sm no-margin pull-right">
+		<li><a href="#">&laquo;</a></li>
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">&raquo;</a></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,49 @@
+<h2>Exercises</h2>
+<p>
+    <a [routerLink]="['NewExercise']" class="btn btn-primary">Add Exercise</a>
+</p>
+<div class="box">
+	<div class="box-header with-border">
+		<h3 class="box-title">Seasons</h3>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th style="text-align: center; width: 40px;"></th>
+					<th>Name</th>
+					<th>Description</th>
+					<th style="text-align: center; width: 40px;">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let e of exercises">
+					<td></td>
+					<td>{{ e.name }}</td>
+					<td>{{ e.description }}</td>
+					<td style="text-align: center;">
+						<a routerLink="view/{{e.exerciseId}}">
+							<i class="fa fa-eye"></i>
+						</a>
+						&nbsp;&nbsp;
+						<a [routerLink]="['EditExercise', { exerciseId: e.exerciseId }]">
+							<i class="fa fa-edit"></i>
+						</a>
+						&nbsp;&nbsp;
+						<i (click)="deleteExercise(e)" class="fa fa-remove clickable"></i>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="box-footer clearfix">
+		<ul class="pagination pagination-sm no-margin pull-right">
+		<li><a href="#">&laquo;</a></li>
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">&raquo;</a></li>
+		</ul>
+	</div>
+</div>

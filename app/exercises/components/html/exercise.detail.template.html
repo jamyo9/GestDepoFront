@@ -1,0 +1,57 @@
+<ul class="timeline">
+    <li class="time-label">
+        <span class="bg-red">
+            {{ exercise?.name }}
+        </span>
+
+        <a class="btn bg-green" style="float:right;"
+            [routerLink]="['../../EditExercise', { exerciseId: exercise?.exerciseId }]">
+            <i class="fa fa-edit"></i>Edit
+        </a>
+    </li>
+    
+    <li>
+        <i class="fa fa-soccer-ball-o bg-blue"></i>
+        <div class="timeline-item">
+            <h3 class="timeline-header"><a>{{ exercise?.description }}</a></h3>
+
+            <div class="timeline-body">
+                {{ exercise?.objective }}
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <i class="fa fa-camera bg-purple"></i>
+        <div class="timeline-item">
+            <h3 class="timeline-header"><a>Design</a></h3>
+
+            <div class="timeline-body">
+                <img [src]="exercise?.design" style="width:100%;" />
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <i class="fa fa-video-camera bg-maroon"></i>
+        <div class="timeline-item">
+            <h3 class="timeline-header"><a>Video</a></h3>
+
+            <div class="timeline-body">
+                <!--
+                <div id="player"></div>
+                -->
+                <!--
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YdkeJaPR3v0" frameborder="0" allowfullscreen></iframe>
+                -->
+                <video width="100%" controls>
+                    <source type="video/mp4" [src]="exercise?.videoUrl" >
+                </video>
+            </div>
+        </div>
+    </li>
+
+    <li>
+        <i class="fa fa-circle bg-yellow"></i>
+    </li>
+</ul>
