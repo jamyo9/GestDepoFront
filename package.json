@@ -24,7 +24,7 @@
     "angular-calendar": "^0.4.0",
     "angular2-calendar": "^0.3.6",
     "angular2-in-memory-web-api": "0.0.15",
-    "bootstrap": "^3.3.6",
+    "bootstrap": "^4.1.2",
     "core-js": "^2.4.0",
     "ng2-file-upload": "^1.1.2",
     "reflect-metadata": "^0.1.3",
